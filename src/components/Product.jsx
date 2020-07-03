@@ -20,7 +20,7 @@ export default class Product extends Component {
       <Container
         onClick={(e) => {
           e.preventDefault();
-          onClick();
+          onClick(id);
         }}
       >
         <h2>{title}</h2>

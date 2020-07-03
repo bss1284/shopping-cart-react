@@ -6,13 +6,19 @@ import Product from "./Product";
 export default class ProductList extends Component {
   static propTypes = {
     products: PropTypes.array.isRequired,
+    onClick: PropTypes.func,
+  };
+  static defaultTypes = {
+    onClick: () => {},
   };
 
   render() {
+    const { products, onClick } = this.props;
+
     return (
       <Container>
-        {this.props.products.map((product) => (
-          <Product key={product.id} {...product}></Product>
+        {products.map((product) => (
+          <Product key={product.id} onClick={onClick} {...product}></Product>
         ))}
       </Container>
     );

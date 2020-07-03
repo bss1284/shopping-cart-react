@@ -8,6 +8,7 @@ const reducer = (state, acion) => {
 
 const initState = {
   products: ProductsData,
+  select_details: ProductsData[0].id,
 };
 
 export default createStore(reducer, initState, composeWithDevTools());
