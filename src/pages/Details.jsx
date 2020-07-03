@@ -2,6 +2,6 @@ import React, { Component } from "react";
 
 export default class Details extends Component {
   render() {
-    return <div></div>;
+    return <div>디테일정보</div>;
   }
 }

@@ -2,7 +2,11 @@ import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import ProductsData from "./data";
 
-const reducer = (state, acion) => {
+const reducer = (state, action) => {
+  if (action.type === "HANDLE_DETAILS") {
+    return { ...state, select_details: action.id };
+  }
+
   return state;
 };
 

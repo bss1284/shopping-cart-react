@@ -2,11 +2,15 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { MdHome } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Image from "./Image";
 
 export default class NavBar extends Component {
   render() {
     return (
       <WrappedNavBar>
+        <Image padding="0.5em">
+          <MdHome color="white" size={40} />
+        </Image>
         <NavIconItem to="/">
           <MdHome color="white" size={40}></MdHome>
         </NavIconItem>
