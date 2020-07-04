@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Center from "./Center";
 
 export default class Product extends Component {
   static propTypes = {
@@ -23,10 +24,15 @@ export default class Product extends Component {
           onClick(id);
         }}
       >
-        <h2>{title}</h2>
-        <Image src={img} alt="" />
-
-        <h1>{price}$</h1>
+        <Center>
+          <h2>{title}</h2>
+        </Center>
+        <Center>
+          <img width="250px" height="250px" src={img} alt="" />
+        </Center>
+        <Center>
+          <h1>{price}$</h1>
+        </Center>
       </Container>
     );
   }
@@ -43,13 +49,7 @@ const Container = styled.div`
   cursor: pointer;
   width: 300px;
   height: 400px;
-  text-align: center;
   &:hover {
     background: ${(props) => props.theme.darkLight};
   }
-`;
-
-const Image = styled.img`
-  width: 250px;
-  height: 250px;
 `;

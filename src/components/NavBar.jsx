@@ -2,55 +2,38 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { MdHome } from "react-icons/md";
 import { Link } from "react-router-dom";
-import Image from "./Image";
+import Center from "./Center";
+import ListView from "./ListView";
+import Text from "./Text";
+import Theme from "../theme";
 
 export default class NavBar extends Component {
   render() {
     return (
-      <WrappedNavBar>
-        <Image padding="0.5em">
-          <MdHome color="white" size={40} />
-        </Image>
-        <NavIconItem to="/">
-          <MdHome color="white" size={40}></MdHome>
-        </NavIconItem>
-
-        <NavTextItem to="/">Products</NavTextItem>
-        <NavTextItem to="/cart">Cart</NavTextItem>
-      </WrappedNavBar>
+      <ListView background={Theme.primary}>
+        <LinkHomeIcon to="/" />
+        <LinkText to="/">Products</LinkText>
+        <LinkText to="/cart">Cart</LinkText>
+      </ListView>
     );
   }
 }
 
-const WrappedNavBar = styled.nav`
-  width: 100%;
-  height: 4em;
-  padding: 0em 0em;
-  background: ${(props) => props.theme.primary};
-  display: flex;
-  align-items: stretch;
-`;
-const NavItem = styled(Link)`
-  cursor: pointer;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const NavIconItem = styled(NavItem)`
-  padding: 0 1em;
-`;
-
-const NavTextItem = styled(NavItem)`
-  font-size: 1.5em;
-  text-decoration: none;
-  flex-basis: 6em;
-  flex-shrink: 0;
-
-  &:hover {
-    border-top: 2px solid ${(props) => props.theme.primary};
-    border-radius: 0.5em 0.5em 0 0;
-    background: white;
-    color: ${(props) => props.theme.primary};
-  }
-`;
+const LinkHomeIcon = (props) => {
+  return (
+    <Center padding="0.5em">
+      <Link to={props.to}>
+        <MdHome color="white" size={40} />
+      </Link>
+    </Center>
+  );
+};
+const LinkText = (props) => {
+  return (
+    <Link to={props.to}>
+      <Center padding="1em">
+        <Text size="1.5em">{props.children}</Text>
+      </Center>
+    </Link>
+  );
+};
