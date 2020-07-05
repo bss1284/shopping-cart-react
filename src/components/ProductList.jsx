@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
 import Product from "./Product";
+
+import ListView from "./atoms/ListView";
 
 export default class ProductList extends Component {
   static propTypes = {
@@ -16,18 +17,11 @@ export default class ProductList extends Component {
     const { products, onClick } = this.props;
 
     return (
-      <Container>
+      <ListView flexWrap="wrap" padding="1em" justifyContents="center">
         {products.map((product) => (
           <Product key={product.id} onClick={onClick} {...product}></Product>
         ))}
-      </Container>
+      </ListView>
     );
   }
 }
-
-const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  padding: 2em;
-  width: 100%;
-`;

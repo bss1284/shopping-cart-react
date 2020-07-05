@@ -1,19 +1,22 @@
 import React, { Component } from "react";
-import styled from "styled-components";
-import { MdHome } from "react-icons/md";
 import { Link } from "react-router-dom";
-import Center from "./Center";
-import ListView from "./ListView";
-import Text from "./Text";
+
+import { MdHome, MdShoppingBasket } from "react-icons/md";
+
 import Theme from "../theme";
+import Center from "./atoms/Center";
+import ListView from "./atoms/ListView";
+import Text from "./atoms/Text";
+import Spacer from "./atoms/Spacer";
 
 export default class NavBar extends Component {
   render() {
     return (
-      <ListView background={Theme.primary}>
+      <ListView background={Theme.primary} height="4em">
         <LinkHomeIcon to="/" />
         <LinkText to="/">Products</LinkText>
-        <LinkText to="/cart">Cart</LinkText>
+        <Spacer />
+        <LinkBasketIcon to="/cart"></LinkBasketIcon>
       </ListView>
     );
   }
@@ -30,10 +33,21 @@ const LinkHomeIcon = (props) => {
 };
 const LinkText = (props) => {
   return (
-    <Link to={props.to}>
-      <Center padding="1em">
-        <Text size="1.5em">{props.children}</Text>
-      </Center>
-    </Link>
+    <Center padding="1em">
+      <Link to={props.to}>
+        <Text size="1.5em" color="white">
+          {props.children}
+        </Text>
+      </Link>
+    </Center>
+  );
+};
+const LinkBasketIcon = (props) => {
+  return (
+    <Center padding="2em">
+      <Link to={props.to}>
+        <MdShoppingBasket color="white" size={40} />
+      </Link>
+    </Center>
   );
 };

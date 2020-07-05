@@ -8,6 +8,9 @@ export default class Center extends Component {
     margin: PropTypes.string,
     color: PropTypes.string,
     background: PropTypes.string,
+    width: PropTypes.string,
+    height: PropTypes.string,
+    borderRadius: PropTypes.string,
   };
 
   render() {
@@ -19,8 +22,11 @@ const WrappedCenter = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
   padding: ${(props) => props.padding};
   margin: ${(props) => props.margin};
   color: ${(props) => props.color};
   background: ${(props) => props.background};
+  border-radius: ${(props) => props.borderRadius};
 `;

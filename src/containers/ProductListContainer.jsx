@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
 import ProductList from "../components/ProductList";
-import {} from "react-router-dom";
 
 const mapStateToProps = (state) => {
   return { products: state.products };

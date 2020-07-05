@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 
+import ProductDetailsContainer from "../containers/ProductDetailsContainer";
+
 export default class Details extends Component {
   render() {
-    return <div>디테일정보</div>;
+    return <ProductDetailsContainer></ProductDetailsContainer>;
   }
 }
